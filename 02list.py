@@ -36,6 +36,19 @@ print(colors[:])
 c1, _, c2, c3, _, _ = colors # 언패킹 세트에 있는 것에서 하나씩 뺀다
 print(c1, c2, c3)
 
+# 다차원 리스트
+colors = ['red', 'blue','green']
+sities = ['서울','부산','인천','의정부','대전','강릉','논산','포항']
+combi = [colors, sities]
+print(combi)
+print(combi[1][2]) # 인천
+# print(combi[2][3]) # 에러
+bigcombi = [combi, [0,2,7]]
+print(bigcombi)
+print(len(bigcombi))
+print(bigcombi[0][1][2]) # 인천
+print(bigcombi[1][1]) # 2
+
 
 # 퀴즈
 first = ["egg","salad","bread","soup","canafe"]
@@ -43,7 +56,8 @@ second = ["fish","lemb","pork","beek","chicken"]
 third = ["apple","banana","orange","grape","mango"]
 
 order = [first,second,third]
-john = [order[0][:-2],second[1::3],third[0]]
-del john[2]
-john.extend([order[2][0:1]])
+john = [order[0][:-2],second[1::3],third[0]] #john = ["soup", [len,chicken],apple
+print(john)
+del john[2] # john = [soup,[lamd, chicken]]
+john.extend([order[2][0:1]]) # john = [soup,[lamd, chicken]], [apple]
 print(john)
