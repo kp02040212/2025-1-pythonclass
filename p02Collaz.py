@@ -11,15 +11,10 @@ n = 10
 # 단계의 갯수를 셀것
 # n을 1부터 99까지 변화하면서 각각의 단계수를 풀력할것
 # 그중 가장 큰 수를 찾을 것
-maxvalue = 0
-maxvaluen = 0
-
-second_maxvalue = 0
-second_maxvaluen = 0
-
-third_maxvalue = 0
-third_maxvaluen = 0
-
+maxvalue2 = 100
+maxvalue1 = 100
+maxvaluen1 = 0
+maxvaluen2 = 0
 for n  in range(1,100):
     # print(f'{n=}')
     ncount = 0
@@ -31,30 +26,18 @@ for n  in range(1,100):
         else:
             i = i / 2
         ncount = ncount + 1
+
+
     print(f'{ncount}')
+    if  maxvalue1 < ncount:
+        maxvalue2 = maxvalue1
+        maxvalue1 = ncount
+        maxvaluen2 = maxvaluen1
+        maxvaluen1 = n
+    elif maxvalue2 < ncount:
+        maxvalue2 = ncount
+        maxvaluen2 = n
 
-    if ncount > maxvalue:
-        third_maxvalue = second_maxvalue
-        third_maxvaluen = second_maxvaluen
-
-        second_maxvalue = maxvalue
-        second_maxvaluen = maxvaluen
-
-        maxvalue = ncount
-        maxvaluen = n
-
-    elif ncount > second_maxvalue and ncount != maxvalue:
-        third_maxvalue = second_maxvalue
-        third_maxvaluen = second_maxvaluen
-
-        second_maxvalue = ncount
-        second_maxvaluen = n
-
-    elif ncount > third_maxvalue and ncount != maxvalue and ncount != second_maxvalue:
-        third_maxvalue = ncount
-        third_maxvaluen = n
-
-print(f'{maxvaluen} {maxvalue}')
-print(f'{second_maxvaluen} {second_maxvalue}')
-print(f'{third_maxvaluen} {third_maxvalue}')
+print(f'{maxvalue1=},{maxvaluen1=}')
+print(f'{maxvalue2=},{maxvaluen2=}')
 
