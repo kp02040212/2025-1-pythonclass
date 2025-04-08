@@ -14,6 +14,12 @@ n = 10
 maxvalue = 0
 maxvaluen = 0
 
+second_maxvalue = 0
+second_maxvaluen = 0
+
+third_maxvalue = 0
+third_maxvaluen = 0
+
 for n  in range(1,100):
     # print(f'{n=}')
     ncount = 0
@@ -25,12 +31,30 @@ for n  in range(1,100):
         else:
             i = i / 2
         ncount = ncount + 1
-
-
     print(f'{ncount}')
-    if  maxvalue < ncount:
+
+    if ncount > maxvalue:
+        third_maxvalue = second_maxvalue
+        third_maxvaluen = second_maxvaluen
+
+        second_maxvalue = maxvalue
+        second_maxvaluen = maxvaluen
+
         maxvalue = ncount
         maxvaluen = n
 
-print(f'{maxvalue=},{maxvaluen=}')
+    elif ncount > second_maxvalue and ncount != maxvalue:
+        third_maxvalue = second_maxvalue
+        third_maxvaluen = second_maxvaluen
+
+        second_maxvalue = ncount
+        second_maxvaluen = n
+
+    elif ncount > third_maxvalue and ncount != maxvalue and ncount != second_maxvalue:
+        third_maxvalue = ncount
+        third_maxvaluen = n
+
+print(f'{maxvaluen} {maxvalue}')
+print(f'{second_maxvaluen} {second_maxvalue}')
+print(f'{third_maxvaluen} {third_maxvalue}')
 
